@@ -1,19 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>
-		Hello From Flask
-	</title>
-
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="static/css/price.css" rel="stylesheet" type="text/css">
+	<title>Hello From Flask</title>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<title>Document</title>
 </head>
 <body>
-	{% if name %}
-	<h1>Hello {{ name }}!</h1>
-	{% else %}
-	<h1>Hello World!</h1> 
-	{% endif %}
+	{% block content %}
+	<div class="card border-success mb-3" style="max-width: 18rem;">
+		<div class="card-header .bg-transparent border-success">
+			{% if name %}
+			<h1>{{ name }}</h1>{% endif %}
+			<div class="saleCallout">
+				<h5 class="H5">{% if price %} {{ price }} {% endif %}</h5>
+			</div>
+		</div>
+		<div class="card-body text-success">
+			<h5 class="card-title">{% if item_name %} {{ item_name }} {% endif %}</h5>
+			<p class="card-text">{% if name %} {{ item_detail }} {% endif %}</p>
+		</div>
+		<div class="card-footer .bg-transparent border-success">
+			{% if contacts %} {{ contacts }} {% endif %}
+		</div>
+	</div>{% endblock %} 
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
+	</script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js">
+	</script> 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
+	</script>
 </body>
 </html>

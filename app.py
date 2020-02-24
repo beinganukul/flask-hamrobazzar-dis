@@ -1,12 +1,19 @@
 from flask import Flask,url_for,request,render_template
 from markupsafe import escape
+#from flask_bootstrap import Bootstrap
+
 
 app = Flask(__name__)
+#Bootstrap(app)
 
 @app.route('/hello')
 @app.route('/hello/<name>')
-def hello(name=None):
-    return render_template('hello.html',name=name)
+@app.route('/hello/<name>/<item_name>')
+@app.route('/hello/<name>/<item_name>/<contacts>')
+@app.route('/hello/<name>/<item_name>/<contacts>/<item_detail>')
+@app.route('/hello/<name>/<item_name>/<contacts>/<item_detail>/<price>')
+def hello(name=None,item_name=None,contacts=None,item_detail=None,price=None):
+    return render_template('hello.html',name=name,item_name=item_name,contacts=contacts,item_detail=item_detail,price=price)
 
 @app.route('/login',methods = ['GET','POST'])
 def login():
