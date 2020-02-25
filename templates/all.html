@@ -1,0 +1,19 @@
+{% extends "single.html" %}
+{% block content %}
+<div class="card border-success mb-3" style="max-width: 18rem;">
+    <div class="card-header .bg-transparent border-success">
+        {% if name %}
+        <h1>{{ name }}</h1>{% endif %}
+        <div class="saleCallout">
+            <h5 class="H5">{% if price %} {{ price }} {% endif %}</h5>
+        </div>
+    </div>
+    <div class="card-body text-success">
+        <h5 class="card-title">{% if item_name %} {{ item_name }} {% endif %}</h5>
+        <p class="card-text">{% if name %} {{ item_detail }} {% endif %}</p>
+    </div>
+    <div class="card-footer .bg-transparent border-success">
+        {% if contacts %} {{ contacts }} {% endif %}
+    </div>
+
+{% endblock %}

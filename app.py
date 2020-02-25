@@ -6,15 +6,18 @@ from markupsafe import escape
 app = Flask(__name__)
 #Bootstrap(app)
 
-@app.route('/hello')
-@app.route('/hello/<name>')
-@app.route('/hello/<name>/<item_name>')
-@app.route('/hello/<name>/<item_name>/<contacts>')
-@app.route('/hello/<name>/<item_name>/<contacts>/<item_detail>')
-@app.route('/hello/<name>/<item_name>/<contacts>/<item_detail>/<price>')
-def hello(name=None,item_name=None,contacts=None,item_detail=None,price=None):
-    return render_template('hello.html',name=name,item_name=item_name,contacts=contacts,item_detail=item_detail,price=price)
+@app.route('/single')
+@app.route('/single/<name>')
+@app.route('/single/<name>/<item_name>')
+@app.route('/single/<name>/<item_name>/<contacts>')
+@app.route('/single/<name>/<item_name>/<contacts>/<item_detail>')
+@app.route('/single/<name>/<item_name>/<contacts>/<item_detail>/<price>')
+def single(name=None,item_name=None,contacts=None,item_detail=None,price=None):
+    return render_template('single.html',name=name,item_name=item_name,contacts=contacts,item_detail=item_detail,price=price)
 
+@app.route('/all')
+def all():
+    return render_template('all.html')
 @app.route('/login',methods = ['GET','POST'])
 def login():
     if request.method == 'POST':
